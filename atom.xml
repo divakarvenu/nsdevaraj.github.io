@@ -4,7 +4,7 @@
   <subtitle><![CDATA[XCoder]]></subtitle>
   <link href="http://nsdevaraj.github.io/atom.xml" rel="self"/>
   <link href="http://nsdevaraj.github.io"/>
-  <updated>2013-11-28T11:25:21.050Z</updated>
+  <updated>2013-11-28T11:52:56.489Z</updated>
   <id>http://nsdevaraj.github.io/</id>
   <author>
     <name><![CDATA[NS Devaraj]]></name>
@@ -20,11 +20,11 @@
     <content type="html"><![CDATA[]]></content>
   </entry>
   <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
+    <title type="html"><![CDATA[Hello World test]]></title>
     <link href="http://nsdevaraj.github.io/2013/11/28/hello-world/"/>
     <id>http://nsdevaraj.github.io/2013/11/28/hello-world/</id>
     <published>2013-11-28T11:17:31.000Z</published>
-    <updated>2013-11-28T11:17:31.000Z</updated>
+    <updated>2013-11-28T11:29:57.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use.</p>
 ]]></content>
   </entry>
