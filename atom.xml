@@ -4,7 +4,7 @@
   <subtitle><![CDATA[XCoder]]></subtitle>
   <link href="http://nsdevaraj.github.io/atom.xml" rel="self"/>
   <link href="http://nsdevaraj.github.io"/>
-  <updated>2013-11-28T11:52:56.489Z</updated>
+  <updated>2013-11-28T12:04:03.242Z</updated>
   <id>http://nsdevaraj.github.io/</id>
   <author>
     <name><![CDATA[NS Devaraj]]></name>
@@ -12,20 +12,12 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
-    <link href="http://nsdevaraj.github.io/2013/11/28/hello-world-1/"/>
-    <id>http://nsdevaraj.github.io/2013/11/28/hello-world-1/</id>
-    <published>2013-11-28T11:24:58.000Z</published>
-    <updated>2013-11-28T11:24:58.000Z</updated>
-    <content type="html"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Hello World test]]></title>
+    <title type="html"><![CDATA[Learn Tamil Letters]]></title>
     <link href="http://nsdevaraj.github.io/2013/11/28/hello-world/"/>
     <id>http://nsdevaraj.github.io/2013/11/28/hello-world/</id>
     <published>2013-11-28T11:17:31.000Z</published>
-    <updated>2013-11-28T11:29:57.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use.</p>
+    <updated>2013-11-28T12:03:53.000Z</updated>
+    <content type="html"><![CDATA[<p>Try this <a href="https://sites.google.com/site/tamilletters/" target="_blank">Letters Casino</a>!<br>The Tamil letters are formed by 12 vowels * 18 consonants.<br>This game was done by myself exactly 10 years before.<br>All of a sudden i remembered about this while teaching Tamil to my kid.</p>
 ]]></content>
   </entry>
 </feed>
