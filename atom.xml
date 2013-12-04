@@ -4,7 +4,7 @@
   <subtitle><![CDATA[XCoder]]></subtitle>
   <link href="http://nsdevaraj.github.io/atom.xml" rel="self"/>
   <link href="http://nsdevaraj.github.io"/>
-  <updated>2013-12-04T05:58:51.766Z</updated>
+  <updated>2013-12-04T06:01:37.837Z</updated>
   <id>http://nsdevaraj.github.io/</id>
   <author>
     <name><![CDATA[NS Devaraj]]></name>
@@ -16,9 +16,11 @@
     <link href="http://nsdevaraj.github.io/2013/12/04/bitcoin/"/>
     <id>http://nsdevaraj.github.io/2013/12/04/bitcoin/</id>
     <published>2013-12-04T05:46:19.000Z</published>
-    <updated>2013-12-04T05:58:32.000Z</updated>
+    <updated>2013-12-04T06:01:17.000Z</updated>
     <content type="html"><![CDATA[<p>Bit Coin - Bitcoin is an open source peer-to-peer electronic money and payment network <a href="http://en.wikipedia.org/wiki/Bitcoin" target="_blank">Wiki</a>!<br>Bit coins are mined by p2p network resources, till now 12 million bitcoins were mined. <a href="http://blockchain.info/charts/total-bitcoins" target="_blank">Source</a><br>The mining will continue until 21 million bitcoins.</p>
-<p>Merchants have an incentive to accept the bitcoins because transaction fees are lower than the 2 to 3% typically imposed by credit card processors.<br>Speculators have been attracted to Bitcoin, fueling volatility and price swings.<br>Current value for bit coin is 1142$, Just 2 Months back it was just $141.<br>Wordpress and Baidu are some famous vendors accepting Bitcoins apart from contract killers.</p>
+<p>Merchants have an incentive to accept the bitcoins because transaction fees are lower than the 2 to 3% typically imposed by credit card processors.<br>Speculators have been attracted to Bitcoin, fueling volatility and price swings. </p>
+<p>Current value for bit coin is 1142 USD.<br>Just 2 Months back it was just 141 USD.</p>
+<p>Wordpress and Baidu are some famous vendors accepting Bitcoins apart from contract killers.</p>
 <p>The basis how it works is, as a user you will be given with unique id. Also, every coin have an unique id mapped to user owning it.<br>The whole information is stored across p2p network, including the transaction details.</p>
 ]]></content>
   </entry>
