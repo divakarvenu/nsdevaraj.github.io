@@ -1,237 +1,85 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>iOS Code Blog</title>
-  <meta name="author" content="NS Devaraj">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-  <meta property="og:site_name" content="iOS Code Blog"/>
-
-  
-    <meta property="og:image" content="undefined"/>
-  
-
-  <link href="/favicon.png" rel="icon">
-
-  <link rel="alternate" href="/atom.xml" title="iOS Code Blog" type="application/atom+xml">
-
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/print.css" media="print" type="text/css">
-
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-
-  <script src="/js/scripts.js"></script>
-
-  
-  
-    <script type="text/x-mathjax-config">
-  MathJax.Hub.Config(
-    {
-      tex2jax: {inlineMath: [['$','$'], ['\(','\)']]},
-      TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
-    }
-  );
-</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-  
+<html><head> 
+  <title>Clock</title>   
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">  
+   <link rel="stylesheet" type="text/css" href="worldclock.css">  
 </head>
-
-
-<body>
-    <div class="container">
-      <div class="left-col">
-        <div class="intrude-less">
-          <header id="header" class="inner">
-            <div class="profilepic">
-  <script src="/js/md5.js"></script>
-  <script type="text/javascript">
-    $(function(){
-	$('.profilepic').append(
-          "<img src='http://www.gravatar.com/avatar/"
-          + MD5("nsdevaraj@gmail.com")
-          + "?s=160' alt='Profile Picture' style='width: 160px;' />");
-    });
-  </script>
-</div><!-- profilepic -->
-<h1><a href="/">NS Devaraj</a></h1>
-<nav id="main-nav">
-  <ul class="main">
-    
-      <li>
-      <a href="/about">About</a>
-      </li>
-    
-  </ul>
-  
-</nav><!-- main-nav -->
-<nav id="sub-nav">
-  <div class="social">
-    
-      <a class="google" href="http://plus.google.com/"
-         title="Google+">Google+</a>
-    
-    
-      <a class="twitter" href="http://twitter.com/"
-         title="Twitter">Twitter</a>
-    
-    
-      <a class="github" href="http://github.com/"
-         title="Github">Github</a>
-    
-    
-        <a class="rss" href="/atom.xml" title="RSS">RSS</a>
-    
-  </div>
-</nav><!-- sub-nav -->
-<nav id="widget-nav">
-  <div class="widgets">
-    
-      
-
-    
-  </div>
-</nav><!-- widget-nav -->
-
-          <header>
-        </div><!-- intrude-less -->
-      </div><!-- left-col -->
-      <div class="mid-col">
-        <div class="mid-col-container">
-	    <div id="content" class="inner"><div itemscope itemtype="http://schema.org/Blog">
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-	<div class="meta">
-          
-<div class="date">
-
-<time datetime="2013-12-04T05:46:19.000Z"
-      
-      data-updated="true"
-       itemprop="datePublished">
-  Dec 4 2013
-</time>
-
-
-
-
-
-</div>
-
-          
-
-
-          
-	</div>
-        <h1 class="title" itemprop="name">
-          <a href="/2013/12/04/bitcoin/" itemprop="url">
-            BitCoin</a>
-        </h1>
-        <div class="entry-content" itemprop="articleBody">
-          
-            <p>Bit Coin - Bitcoin is an open source peer-to-peer electronic money and payment network <a href="http://en.wikipedia.org/wiki/Bitcoin" target="_blank">Wiki</a>!<br>Bit coins are mined by p2p network resources, till now 12 million bitcoins were mined. <a href="http://blockchain.info/charts/total-bitcoins" target="_blank">Source</a><br>The mining will continue until 21 million bitcoins.</p>
-<p>Merchants have an incentive to accept the bitcoins because transaction fees are lower than the 2 to 3% typically imposed by credit card processors.<br>Speculators have been attracted to Bitcoin, fueling volatility and price swings. </p>
-<p>Current value for bit coin is 1142 USD.<br>Just 2 Months back it was just 141 USD.</p>
-<p>Wordpress and Baidu are some famous vendors accepting Bitcoins apart from contract killers.</p>
-<p>The basis how it works is, as a user you will be given with unique id. Also, every coin have an unique id mapped to user owning it.<br>The whole information is stored across p2p network, including the transaction details.</p>
-
-          
+<body> <div class="span-10 right last" style="text-align:right;">
+  <form method="post" action="#" class="inline" id="newcity_form">
+      <input id="newcity" style="text-align:left;" name="newcity" type="text" class="title hint ui-autocomplete-input" title="city, country or time zone" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+      <button type="submit" id="addcity" value="Submit" class="groovybutton">Add</button>
+      <input type="hidden" id="newcityid">
+  </form></div>
+  <div class="container">  
+    <div id="content" class="span-18 prepend-top"> 
+<!-- city template -->
+<script type="text/html" id="cityitem_templ">
+  <ul class="list append-3 prepend-3 span-12 last">
+   <% for ( var i = 0; i < cities.length; i++ ) { var city = cities[i]; %>        
+   <li class="ui-corner-all prepend-top span-12 <%=city.day_night_class%>" city="<%=city.id%>">
+      <div class="span-6 prepend-1">
+        <div><span class="cityname"><%=city.name%></span> 
+        </div>            
+      </div>
+      <div class="span-5 last">
+        <div>
+          <span class="time"><%=city.time_text%></span>
+          <span class="timezone" title="Observing Daylight Saving Time"><%=city.timezone_text%> <%= city.isDST ? '*' : ''%>
+          </span>
+        </div>                
+        <div>
+          <span class="date" ><%=city.date_text%></span>                
         </div>
-
-
-</article>
-
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-	<div class="meta">
-          
-<div class="date">
-
-<time datetime="2013-11-28T11:17:31.000Z"
-      
-      data-updated="true"
-       itemprop="datePublished">
-  Nov 28 2013
-</time>
-
-
-
-
-
-</div>
-
-          
-
-
-          
-	</div>
-        <h1 class="title" itemprop="name">
-          <a href="/2013/11/28/hello-world/" itemprop="url">
-            Learn Tamil Letters</a>
-        </h1>
-        <div class="entry-content" itemprop="articleBody">
-          
-            <p>Try this <a href="https://sites.google.com/site/tamilletters/" target="_blank">Letters Casino</a>!<br>The Tamil letters are formed by 12 vowels * 18 consonants.<br>This game was done by myself exactly 10 years before.<br>All of a sudden i remembered about this while teaching Tamil to my kid.</p>
-
-          
-        </div>
-
-
-</article>
-
-
-
-
-</div>
-
-<nav id="pagenavi">
-    
-    
-    <div class="center">
-      <a href="archives">Blog Archives</a>
+      </div>
+      <span class="remove hide">X</span>
+   </li>
+   <% } %></ul>
+</script> <!-- end of city template -->
+<script type="text/html" id="citytiles_templ">
+<ul class="tiles span-16 append-1 prepend-1 last">
+<% for ( var i = 0; i < cities.length; i++ ) { var city = cities[i]; %>        
+  <li class="ui-corner-all ui-state-active prepend-top span-5 <%=city.day_night_class%>" city="<%=city.id%>">
+    <div class="cityname"><%=city.name%></div>
+    <div>
+      <span class="time"><%=city.time_text%></span>
+      <span class="timezone" title="Observing Daylight Saving Time"><%=city.timezone_text%> <%= city.isDST ? '*' : ''%>
     </div>
-</nav>
-</div>
-	</div>
-        <footer id="footer" class="inner">
-          Copyright © 2013 - NS Devaraj - Powered by <a href="https://github.com/tommy351/hexo">Hexo</a><br>
-- Ported theme <a href="https://github.com/nuklly/hexo-theme-greyshade">GreyShade</a> -
-        </footer>
-        
-<script src="/js/slash.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+    <div><span class="date" ><%=city.date_text%></span></div>
+    <span class="remove hide">X</span>
+  </li>
+  <% } %></ul>
 </script>
+       
+<div id="city_list">  
+  </div>
+<div id="slider_block" class="prepend-3 append-2 span-13 last append-bottom" style="position:relative;height:40px;">
+	<p title="Local Time" style="position: absolute; left: 93px;" class="triangle-isosceles" id="localtime">04:10 PM</p>
+	<div id="slider" class="span-12 last ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="position:absolute;top:25px;"><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></a></div>
+</div>     
+   <script type="text/javascript" src="worldclock.js"></script> 
+  
+  
+<script>
+$(document).ready(function() {
+  KBJS.WTP.app.init();
+	
+	var version = '8.5';
+  if (version !== KBJS.WTP.options.version){
+    $('#features').show();
+    KBJS.WTP.options.version = version;
+    KBJS.WTP.options.save();
+  }
+	var svcParams = [];
+	svcParams.push("is24Hr=");
+	svcParams.push(KBJS.WTP.options.is24Hr);
+	svcParams.push("&layout=");
+	svcParams.push(KBJS.WTP.options.layout);
+	svcParams.push("&timeFormat=");
+	svcParams.push(KBJS.WTP.options.timeFormat);
+	svcParams.push("&dateFormat=");
+	svcParams.push(KBJS.WTP.options.dateFormat);
+    
+});</script> 
 
-
-
-
-      </div><!-- mid-col -->
-    </div><!-- container -->
-</body>
-</html>
+   
+  
+</body></html>
