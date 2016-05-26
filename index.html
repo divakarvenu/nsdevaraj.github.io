@@ -1,257 +1,64 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>HTML5 Rubik's cube</title>
-      <meta name = "viewport" content = "user-scalable=no">
-      <link rel="stylesheet" href="style.css">
-      </link>  
-      <link rel="stylesheet" href="rubik.css">
-      </link>  
-      <script src="yui-min.js"></script>
-      <script src="rubik.js"></script> 
-   </head>
-   <body>
-      <section id="rubik">
-         <div id="cube-container">
-            <div id="cube-viewport">
-               <div id="cube">
-                  <!-- UP FACE -->            
-                  <!-- LEFT COLUMN (L)  -->                
-                  <div class="utl cubie up LM UE BS">
-                     <div><span>U1</span></div>
-                  </div>
-                  <div class="ucl cubie up LM UE CS">
-                     <div><span>U2</span></div>
-                  </div>
-                  <div class="ubl cubie up LM UE FS">
-                     <div><span>U3</span></div>
-                  </div>
-                  <!-- CENTER COLUMN (C)  -->            
-                  <div class="utc cubie up CM UE BS">
-                     <div><span>U4</span></div>
-                  </div>
-                  <div class="ucc cubie up CM UE CS">
-                     <div><span>U5</span></div>
-                  </div>
-                  <div class="ubc cubie up CM UE FS">
-                     <div><span>U6</span></div>
-                  </div>
-                  <!-- RIGHT COLUMN (R)  -->
-                  <div class="utr cubie up RM UE BS">
-                     <div><span>U7</span></div>
-                  </div>
-                  <div class="ucr cubie up RM UE CS">
-                     <div><span>U8</span></div>
-                  </div>
-                  <div class="ubr cubie up RM UE FS">
-                     <div><span>U9</span></div>
-                  </div>
-                  <!-- END UP FACE -->  
-                  <!-- FRONT FACE -->
-                  <!-- LEFT COLUMN (L)  -->                
-                  <div class="ftl cubie front LM UE FS">
-                     <div><span>F1</span></div>
-                  </div>
-                  <div class="fcl cubie front LM CE FS">
-                     <div><span>F2</span></div>
-                  </div>
-                  <div class="fbl cubie front LM DE FS">
-                     <div><span>F3</span></div>
-                  </div>
-                  <!-- CENTER COLUMN (C)  -->            
-                  <div class="ftc cubie front CM UE FS">
-                     <div><span>F4</span></div>
-                  </div>
-                  <div class="fcc cubie front CM CE FS">
-                     <div><span>F5</span></div>
-                  </div>
-                  <div class="fbc cubie front CM DE FS">
-                     <div><span>F6</span></div>
-                  </div>
-                  <!-- RIGHT COLUMN (R)  -->
-                  <div class="ftr cubie front RM UE FS">
-                     <div><span>F7</span></div>
-                  </div>
-                  <div class="fcr cubie front RM CE FS">
-                     <div><span>F8</span></div>
-                  </div>
-                  <div class="fbr cubie front RM DE FS">
-                     <div><span>F9</span></div>
-                  </div>
-                  <!-- END FRONT FACE -->
-                  <!--DOWN FACE -->
-                  <!-- LEFT COLUMN (L)  -->                
-                  <div class="dtl cubie down LM DE FS">
-                     <div><span>D1</span></div>
-                  </div>
-                  <div class="dcl cubie down LM DE CS">
-                     <div><span>D2</span></div>
-                  </div>
-                  <div class="dbl cubie down LM DE BS">
-                     <div><span>D3</span></div>
-                  </div>
-                  <!-- CENTER COLUMN (C)  -->                
-                  <div class="dtc cubie down CM DE FS">
-                     <div><span>D4</span></div>
-                  </div>
-                  <div class="dcc cubie down CM DE CS">
-                     <div><span>D5</span></div>
-                  </div>
-                  <div class="dbc cubie down CM DE BS">
-                     <div><span>D6</span></div>
-                  </div>
-                  <!-- RIGHT COLUMN (R)  -->        
-                  <div class="dtr cubie down RM DE FS">
-                     <div><span>D7</span></div>
-                  </div>
-                  <div class="dcr cubie down RM DE CS">
-                     <div><span>D8</span></div>
-                  </div>
-                  <div class="dbr cubie down RM DE BS">
-                     <div><span>D9</span></div>
-                  </div>
-                  <!-- END DOWN FACE -->
-                  <!--BACK FACE -->    
-                  <!-- LEFT COLUMN (L)  -->           
-                  <div class="btl cubie back LM DE BS">
-                     <div><span>B1</span></div>
-                  </div>
-                  <div class="bcl cubie back LM CE BS">
-                     <div><span>B2</span></div>
-                  </div>
-                  <div class="bbl cubie back LM UE BS">
-                     <div><span>B3</span></div>
-                  </div>
-                  <!-- CENTER COLUMN (C)  -->           
-                  <div class="btc cubie back CM DE BS">
-                     <div><span>B4</span></div>
-                  </div>
-                  <div class="bcc cubie back CM CE BS">
-                     <div><span>B5</span></div>
-                  </div>
-                  <div class="bbc cubie back CM UE BS">
-                     <div><span>B6</span></div>
-                  </div>
-                  <!-- RIGHT COLUMN (R)  -->    
-                  <div class="btr cubie back RM DE BS">
-                     <div><span>B7</span></div>
-                  </div>
-                  <div class="bcr cubie back RM CE BS">
-                     <div><span>B8</span></div>
-                  </div>
-                  <div class="bbr cubie back RM UE BS">
-                     <div><span>B9</span></div>
-                  </div>
-                  <!--END BOTTOM FACE --> 
-                  <!--LEFT FACE -->
-                  <!-- LEFT COLUMN (L)  -->           
-                  <div class="ltl cubie left LM UE BS">
-                     <div><span>L1</span></div>
-                  </div>
-                  <div class="lcl cubie left LM CE BS">
-                     <div><span>L2</span></div>
-                  </div>
-                  <div class="lbl cubie left LM DE BS">
-                     <div><span>L3</span></div>
-                  </div>
-                  <!-- CENTER COLUMN (C)  -->  
-                  <div class="ltc cubie left LM UE CS">
-                     <div><span>L4</span></div>
-                  </div>
-                  <div class="lcc cubie left LM CE CS">
-                     <div><span>L5</span></div>
-                  </div>
-                  <div class="lbc cubie left LM DE CS">
-                     <div><span>L6</span></div>
-                  </div>
-                  <!-- RIGHT COLUMN (R)  -->    
-                  <div class="ltr cubie left LM UE FS">
-                     <div><span>L7</span></div>
-                  </div>
-                  <div class="lcr cubie left LM CE FS">
-                     <div><span>L8</span></div>
-                  </div>
-                  <div class="lbr cubie left LM DE FS">
-                     <div><span>L9</span></div>
-                  </div>
-                  <!--END LEFT FACE -->   
-                  <!--RIGHT FACE -->
-                  <!-- LEFT COLUMN (L)  -->           
-                  <div class="rtl cubie right RM UE FS">
-                     <div><span>R1</span></div>
-                  </div>
-                  <div class="rcl cubie right RM CE FS">
-                     <div><span>R2</span></div>
-                  </div>
-                  <div class="rbl cubie right RM DE FS">
-                     <div><span>R3</span></div>
-                  </div>
-                  <!-- CENTER COLUMN (C)  -->  
-                  <div class="rtc cubie right RM UE CS">
-                     <div><span>R4</span></div>
-                  </div>
-                  <div class="rcc cubie right RM CE CS">
-                     <div><span>R5</span></div>
-                  </div>
-                  <div class="rbc cubie right RM DE CS">
-                     <div><span>R6</span></div>
-                  </div>
-                  <!-- RIGHT COLUMN (R)  -->    
-                  <div class="rtr cubie right RM UE BS">
-                     <div><span>R7</span></div>
-                  </div>
-                  <div class="rcr cubie right RM CE BS">
-                     <div><span>R8</span></div>
-                  </div>
-                  <div class="rbr cubie right RM DE BS">
-                     <div><span>R9</span></div>
-                  </div>
-                  <!--END LEFT FACE -->   
-               </div>
-            </div>
-         </div>
-         <aside>
-            <section id="main">
-               <div id="cube-controls">
-                  <ul>
-                     <li>
-                        <div class="undo"></div>
-                     </li>
-                     <li>
-                        <div class="redo"></div>
-                     </li>
-                     <li>
-                        <div class="solve"></div>
-                     </li>
-                     <li id="rotation">
-                        <div class="rotate"></div>
-                     </li>
-                     <li>
-                        <div class="resolve"></div>
-                     </li>
-                  </ul>
-               </div>
-            </section>
-         </aside>
-      </section>
-     
-      <section id="tutorial">
-         <p><span>Move</span> your device to trigger the accelerometers and rotate the cube. 
-            Use <span>flick</span> gestures to move the faces. 
-            <span>Rotate</span> your device to start the <span class="yellow">landscape</span> application. Have fun!
-         </p>
-      </section>
-      <section id="messages">
-         <p>Flick over the cube to do the movements. 
-            Push with two fingers on the screen (or use the orange button) to rotate the cube. 
-			Click arrows for Undo and Redo.
-         </p>
-      </section>
-	  <script>
-         YUI().use('node','rubik',function(Y){ 
-             var cube = window.cube = new Y.Rubik();
-             cube.run();    
-         });
-      </script> 
-   </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/cube.css">
+    <link rel="stylesheet" type="text/css" href="styles/doodle.css">
+    <link rel="stylesheet" type="text/css" href="styles/certificate.css"> 
+    <!-- compiled & minified cube code -->
+    <script charset="utf-8" src="scripts/tween.js"></script>
+    <script charset="utf-8" src="scripts/Three.noStrict.js"></script>
+    <script charset="utf-8" src="scripts/cuber.min.js"></script>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="container"></div>
+    <div id="fail">
+      <img src="media/static-cube.png"/>
+      <div id="upgradeText" class="bubble fadeTransition">
+        <div class="upgradetext">To play, please use a supported hardware configuration and the latest version of one of these browsers:</div>
+        <br>
+        <a class="upgradetext" href="https://www.google.com/chrome/browser/" target="_blank">Chrome</a><br>
+        <a class="upgradetext" href="https://www.mozilla.org/firefox" target="_blank">Firefox</a><br>
+        <a class="upgradetext" href="https://www.apple.com/safari" target="_blank">Safari</a><br>
+        <span class="pointerleft SPRITE_carrot_down_2x"></span>
+      </div>
+    </div>
+    <div id="uipanel" class="fadeTransition">
+      <div id="movecounter">0</div>
+      <div id="buttonpanel">
+        <div id="sharebubble" class="fadeTransition" style="opacity:0">
+          <input id="shareshortlink" type="text" value="google.com/doodles" readonly="readonly"/>
+          <div id="sharegplus" class="bubbleicon SPRITE_google_plus_64_2x"></div>
+          <div id="sharefacebook" class="bubbleicon SPRITE_facebook_64_2x"></div>
+          <div id="sharetwitter" class="bubbleicon SPRITE_twitter_64_2x"></div>
+          <div id="shareemail" class="bubbleicon SPRITE_email_64_2x"></div>
+        </div>
+        <div id="uibuttons">
+          <div id="sharebutton" class="bubbleicon SPRITE_share_64_2x"></div>
+          <div id="helpbutton" class="bubbleicon SPRITE_help_64_2x"></div>
+          <div id="searchbutton" class="bubbleicon SPRITE_search_64_2x"></div>
+        </div>
+      </div>
+      <div id="helpbubble" class="bubble" style="display:none">
+        <span class="pointerup SPRITE_carrot_grey_up_2x"></span>
+        <div id="helpimage" class="one"></div>
+        <div id="helptext" class="helptext"></div>
+        <div id="helpnext" class="helptext"></div>
+        <span class="pointerdown SPRITE_carrot_down_2x"></span><br>
+      </div>
+    </div>
+    <script charset="utf-8" src="scripts/iecss3d.js"></script>
+    <script charset="utf-8" src="scripts/ierenderer.js"></script>
+    <script charset="utf-8" src="scripts/deviceMotion.js"></script>
+    <script charset="utf-8" src="scripts/locked.js"></script>
+    <!-- Certificate js -->
+    <script charset="utf-8" src="scripts/textBox.js"></script>
+    <script charset="utf-8" src="scripts/ResizeableTextBox.3.js"></script>
+    <script charset="utf-8" src="scripts/divBox.js"></script>
+    <script charset="utf-8" src="scripts/frames.js"></script>
+    <script charset="utf-8" src="scripts/certificate.js"></script>
+    <script charset="utf-8" src="scripts/main.js"></script>
+  </body>
 </html>
