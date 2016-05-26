@@ -124,7 +124,15 @@ function setupLogo() {
     stickerLogo[0].classList.remove('stickerLogo');
   }
   cube.twistDuration = 0;
-  var LOGO_SEQUENCE = ''//'zzxLFFRDuFLUrl';
+  //initial set
+  var LOGO_SEQUENCE = 'zzxLFFRDuFLUrl';
+  //Step 1
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'dSLsldrr';
+  //Step 2
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'ffyuffllyyuffzz';
+  //Step 3
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ '';
+ 
   cube.twistCountDown = LOGO_SEQUENCE.length;
   scopedCheckQueue = checkQueue.bind(this, startScrambleAnimation);
   cube.addEventListener('onTwistComplete', scopedCheckQueue);
@@ -151,7 +159,10 @@ function setupLogo() {
       setWhiteBg(prefix + cubelet.id + ' .sticker.orange');
     }
   });
-  setTimeout(scrambleCube, 1000);
+  setTimeout(scrambleCubeInit, 1000);
+}
+function scrambleCubeInit(){
+	scrambleCube('dD')
 }
 function enableDeviceMotion() {
   if (!motion) {
@@ -260,7 +271,7 @@ function startScrambleAnimation() {
   postParentMessage({'transition': 1});
   cube.show();
 }
-function scrambleCube() {
+function scrambleCube(moves) {
   new TWEEN.Tween(cube.position)
   .to({
         x: 0,
@@ -277,8 +288,8 @@ function scrambleCube() {
       }, 3000)
   .easing(TWEEN.Easing.Quartic.InOut)
   .start(cube.time);
-  cube.twistDuration = 120;
-  var WCA_SCRAMBLE_SHORT = 'dD'//'ddurrdllrBffDUbffdurfdUbll';
+  cube.twistDuration = 120; // make it lower value for faster
+  var WCA_SCRAMBLE_SHORT = moves;//'ddurrdllrBffDUbffdurfdUbll';
   cube.twistCountDown =
       WCA_SCRAMBLE_SHORT.length + cube.twistQueue.history.length;
   cube.twist(WCA_SCRAMBLE_SHORT);
