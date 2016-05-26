@@ -161,7 +161,9 @@ function setupLogo() {
   //Step 6 initial
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'y';
   //Step 6 to Repeat
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+'uu'+ 'RUrURUUrU'
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+'uu'+ 'RUrURUUrU'+'uuy'
+  // Step 7
+  LOGO_SEQUENCE = LOGO_SEQUENCE + 'rFrBBRfrBBRR'
  
   cube.twistCountDown = LOGO_SEQUENCE.length;
   scopedCheckQueue = checkQueue.bind(this, startScrambleAnimation);
