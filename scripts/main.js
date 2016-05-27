@@ -126,7 +126,7 @@ function setupLogo() {
   cube.twistDuration = 0;
   //initial set
   var LOGO_SEQUENCE = 'zzxLFFRDuFLUrl';
-   //Step 1
+ /*  //Step 1
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'dSLsldrr';
   //Step 2
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'ffyuffllyyuffzz';
@@ -162,9 +162,9 @@ function setupLogo() {
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'y';
   //Step 6 to Repeat
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+'uu'+ 'RUrURUUrU'+'uuyy' 
-  // Step 7
+  // Step 8
   LOGO_SEQUENCE = LOGO_SEQUENCE + 'FFuLrFFlRuFF'
- 
+ */
   cube.twistCountDown = LOGO_SEQUENCE.length;
   scopedCheckQueue = checkQueue.bind(this, startScrambleAnimation);
   cube.addEventListener('onTwistComplete', scopedCheckQueue);
@@ -320,7 +320,7 @@ function scrambleCube(moves) {
       }, 3000)
   .easing(TWEEN.Easing.Quartic.InOut)
   .start(cube.time);
-  cube.twistDuration = 120; // make it lower value for faster
+  cube.twistDuration = 350; // make it lower value for faster
   var WCA_SCRAMBLE_SHORT = moves;//'ddurrdllrBffDUbffdurfdUbll';
   cube.twistCountDown =
       WCA_SCRAMBLE_SHORT.length + cube.twistQueue.history.length;
