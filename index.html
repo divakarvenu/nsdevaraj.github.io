@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/cube.css">
     <link rel="stylesheet" type="text/css" href="styles/doodle.css">
-    <link rel="stylesheet" type="text/css" href="styles/certificate.css"> 
+    <link rel="stylesheet" type="text/css" href="styles/certificate.css">
     <!-- compiled & minified cube code -->
     <script charset="utf-8" src="scripts/tween.js"></script>
     <script charset="utf-8" src="scripts/Three.noStrict.js"></script>
@@ -28,11 +28,14 @@
 		<input type="button" value="Step 5 - Init" onclick="scrambleCube('yy')"/>
 		<input type="button" value="Step 5 - Repeat Twice" onclick="scrambleCube('FRUruf')"/>
 		<input type="button" value="Step 6 - Init" onclick="scrambleCube('Y')"/>
-		<input type="button" value="Step 6 - Repeat Once" onclick="scrambleCube('RUrURUUrU')"/>  
+		<input type="button" value="Step 6 - Repeat Once" onclick="scrambleCube('RUrURUUrU')"/>
 		<input type="button" value="Step 7 - Optional" onclick="scrambleCube('rFrBBRfrBBRR')"/>
 		<input type="button" value="Step 8 - Init" onclick="scrambleCube('uuyy')"/>
 		<input type="button" value="Step 8 - Right" onclick="scrambleCube('FFuLrFFlRuFF')"/>
-		<input type="button" value="Step 8 - Left" onclick="scrambleCube('FFULrFFlRUFF')"/> 
+		<input type="button" value="Step 8 - Left" onclick="scrambleCube('FFULrFFlRUFF')"/>
+    <div id="movesdisplay" style="margin: 0 auto; text-align: center; border: 1px solid white;">
+    <h1></h1>
+    </div>
 	</div>
     <div id="fail">
       <img src="media/static-cube.png"/>
@@ -45,6 +48,7 @@
         <span class="pointerleft SPRITE_carrot_down_2x"></span>
       </div>
     </div>
+
     <div id="uipanel" class="fadeTransition">
       <div id="movecounter">0</div>
       <div id="buttonpanel">
@@ -69,6 +73,7 @@
         <span class="pointerdown SPRITE_carrot_down_2x"></span><br>
       </div>
     </div>
+    <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
     <script charset="utf-8" src="scripts/iecss3d.js"></script>
     <script charset="utf-8" src="scripts/ierenderer.js"></script>
     <script charset="utf-8" src="scripts/deviceMotion.js"></script>
