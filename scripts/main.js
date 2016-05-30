@@ -133,7 +133,7 @@ function setupLogo() {
   //Step 3
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yfdFyydfdFDYLDlYY';
   //Step 3 Last corner
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'dfddFDfdF';  
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'dfddFDfdF';
   //Step 4 initial
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'zzyyuuy';
   //Step 4 to Right
@@ -145,23 +145,23 @@ function setupLogo() {
   //Step 4 initial
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yy';
   //Step 4 to Right
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'URurufUF'; 
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'URurufUF';
   //Step 4 initial
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yu';
   //Step 4 to Left
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'ulULUFuf';
-  
+
   //Step 5 initial
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yy';
   //Step 5 to Repeat
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'FRUruf';
   //Step 5 to Repeat
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'FRUruf';
-  
+
   //Step 6 initial
   LOGO_SEQUENCE = LOGO_SEQUENCE+ 'y';
   //Step 6 to Repeat
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+'uu'+ 'RUrURUUrU'+'uuyy' 
+  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+'uu'+ 'RUrURUUrU'+'uuyy'
   // Step 8
   LOGO_SEQUENCE = LOGO_SEQUENCE + 'FFuLrFFlRuFF'
  */
@@ -304,6 +304,7 @@ function startScrambleAnimation() {
   cube.show();
 }
 function scrambleCube(moves) {
+  $("#movesdisplay").find('h1').empty()
   new TWEEN.Tween(cube.position)
   .to({
         x: 0,
@@ -327,6 +328,7 @@ function scrambleCube(moves) {
   cube.twist(WCA_SCRAMBLE_SHORT);
   scopedCheckQueue = checkQueue.bind(this, startInteractiveCube);
   cube.addEventListener('onTwistComplete', scopedCheckQueue);
+
   cube.cubelets.forEach(function(cubelet, indexCubelets) {
     cubelet.faces.forEach(function(face, indexFaces) {
       var sticker = face.element.getElementsByClassName('sticker')[0];
@@ -357,6 +359,7 @@ function scrambleCube(moves) {
       }
     });
   });
+
 }
 function solveCube(_twistDuration) {
   _twistDuration = _twistDuration || 0;
