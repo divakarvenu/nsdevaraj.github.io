@@ -321,7 +321,7 @@ function scrambleCube(moves) {
       }, 3000)
   .easing(TWEEN.Easing.Quartic.InOut)
   .start(cube.time);
-  cube.twistDuration = 350; // make it lower value for faster
+  cube.twistDuration = 450; // make it lower value for faster
   var WCA_SCRAMBLE_SHORT = moves;//'ddurrdllrBffDUbffdurfdUbll';
   cube.twistCountDown =
       WCA_SCRAMBLE_SHORT.length + cube.twistQueue.history.length;
