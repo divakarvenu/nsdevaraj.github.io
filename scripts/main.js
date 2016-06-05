@@ -105,7 +105,7 @@ if (!isIe) {
 window.setTimeout(setupLogo, 100);
 function setupLogo() {
   cube.rotation.set(
-      (45).degreesToRadians(),
+      (25).degreesToRadians(),
       (-45).degreesToRadians(),
       (0).degreesToRadians()
   );
@@ -316,7 +316,7 @@ function scrambleCube(moves) {
   new TWEEN.Tween(cube.rotation)
   .to({
         x: (25).degreesToRadians(),
-        y: (45).degreesToRadians(),
+        y: (25).degreesToRadians(),
         z: 0
       }, 3000)
   .easing(TWEEN.Easing.Quartic.InOut)
