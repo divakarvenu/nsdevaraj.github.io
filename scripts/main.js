@@ -105,8 +105,8 @@ if (!isIe) {
 window.setTimeout(setupLogo, 100);
 function setupLogo() {
   cube.rotation.set(
-      (25).degreesToRadians(),
-      (-25).degreesToRadians(),
+      (45).degreesToRadians(),
+      (-45).degreesToRadians(),
       (0).degreesToRadians()
   );
   cube.typeCubeletIds = new Array(8, 17, 16, 23, 20, 12, 21, 25);
