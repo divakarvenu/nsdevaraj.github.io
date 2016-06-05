@@ -194,7 +194,7 @@ function setupLogo() {
   setTimeout(scrambleCubeInit, 1000);
 }
 function scrambleCubeInit(){
-	scrambleCube('dD')
+	scrambleCube('')
 }
 function enableDeviceMotion() {
   if (!motion) {
