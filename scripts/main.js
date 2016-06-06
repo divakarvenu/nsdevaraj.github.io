@@ -126,45 +126,8 @@ function setupLogo() {
   cube.twistDuration = 0;
   //initial set
   var LOGO_SEQUENCE = 'zzxLFFRDuFLUrl';
- /*  //Step 1
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'dSLsldrr';
-  //Step 2
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'ffyuffllyyuffzz';
-  //Step 3
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yfdFyydfdFDYLDlYY';
-  //Step 3 Last corner
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'dfddFDfdF';
-  //Step 4 initial
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'zzyyuuy';
-  //Step 4 to Right
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'URurufUF';
-  //Step 4 initial
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'Uy';
-  //Step 4 to Left
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'ulULUFuf';
-  //Step 4 initial
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yy';
-  //Step 4 to Right
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'URurufUF';
-  //Step 4 initial
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yu';
-  //Step 4 to Left
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'ulULUFuf';
+ 
 
-  //Step 5 initial
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'yy';
-  //Step 5 to Repeat
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'FRUruf';
-  //Step 5 to Repeat
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'FRUruf';
-
-  //Step 6 initial
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'y';
-  //Step 6 to Repeat
-  LOGO_SEQUENCE = LOGO_SEQUENCE+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+ 'RUrURUUrU'+'uu'+ 'RUrURUUrU'+'uuyy'
-  // Step 8
-  LOGO_SEQUENCE = LOGO_SEQUENCE + 'FFuLrFFlRuFF'
- */
   cube.twistCountDown = LOGO_SEQUENCE.length;
   scopedCheckQueue = checkQueue.bind(this, startScrambleAnimation);
   cube.addEventListener('onTwistComplete', scopedCheckQueue);
@@ -194,7 +157,7 @@ function setupLogo() {
   setTimeout(scrambleCubeInit, 1000);
 }
 function scrambleCubeInit(){
-	scrambleCube('')
+	scrambleCube('Dd')
 }
 function enableDeviceMotion() {
   if (!motion) {
