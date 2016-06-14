@@ -1,8 +1,75 @@
 <html>
 <body>
+ <script>
+
+            function validate(url) {
+               var urlregex = /^((ftp|https?)\:\/\/)?[\w-]+(\.[\w-]+)+\.?(\:\d+)?(\/\S*)?$/gi;
+               return url.match(urlregex);
+            }
+
+            function validate2(url) {
+               var urlregex = new RegExp("^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+               return urlregex.test(url);
+            }
+
+            function success() {
+                document.getElementsByTagName("form")[0].innerHTML = "<p class='success'>Your file was successfully uploaded. Would you like to <a href='.'>upload another file</a>?</p>";
+            }
+
+
+            function showError(msg, url, where) {
+                document.getElementsByTagName("form")[0].innerHTML = "<p class='success'>We were unable to upload the file. Please send the following error message to amit@labnol.org for support.<br><br><em>"
+                + msg + " " + where + " " + url + "</em><br><br>Would you like to <a href='.'>try again</a>?</p>";
+            }
+
+            function logout() {
+                window.location.href = "?logout";
+            }
+
+            function save() {
+                var url     = document.getElementById("url").value;
+                var where   = document.getElementById("service").value;
+                if (validate(url)) {
+                    ga('send', 'event', 'upload', where, url);
+                    filepicker.setKey("AAiKmFlPTQIGqLCEQu5cQz");
+                    filepicker.exportFile(url, {
+                        service: where
+                    }, function(FPFile) {
+                        success();
+                    }, function(FPError) {
+                        showError(FPError.message, url, where);
+                    });
+                } else {
+                    alert("Please enter a valid URL starting with http://");
+                }
+            }
+        </script>
+
 <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 
-<input type="filepicker" data-fp-apikey="AAiKmFlPTQIGqLCEQu5cQz"
-onchange="alert(event.fpfile.url)">
+
+        <form class="form-horizontal well"> 
+
+                <div class="control-group ">
+                <label class="control-label-new" for="inputURL"> b. select destination</label>
+                    <div class="controls2 send">
+                        <select name="service" id="service" style="width:90%" required="">
+                          <option value="DROPBOX">Dropbox</option>
+                          <option value="GOOGLE_DRIVE">Google Drive</option>
+                          <option value="SKYDRIVE">Microsoft OneDrive</option>
+                          <option value="BOX">Box.net</option>
+                          <option value="EVERNOTE">Evernote</option>
+                          <option value="FTP">FTP Server</option>
+                        </select>
+                    </div>
+                </div>
+
+            <div class="control-group">
+                    <a href="#" onclick="save();return false;" class="btn btn-inverse"><i class="icon-white icon-upload"></i> Upload File</a>
+                    <a href="#" onclick="logout();return false;" class="btn btn-inverse"><i class="icon-white icon-eject"></i> Logout</a>
+            </div>
+
+        </form>  
 </body>
-</html>          
+</html>           
+       
