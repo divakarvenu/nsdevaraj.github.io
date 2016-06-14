@@ -29,8 +29,7 @@
             function save() {
                 var url     = document.getElementById("url").value;
                 var where   = document.getElementById("service").value;
-                if (validate(url)) {
-                    ga('send', 'event', 'upload', where, url);
+                if (validate(url)) { 
                     filepicker.setKey("AAiKmFlPTQIGqLCEQu5cQz");
                     filepicker.exportFile(url, {
                         service: where
