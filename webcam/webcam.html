@@ -13,6 +13,9 @@
 <body >  
 	<script src="webcam.js"></script>
 	<div id="my_camera" style="width:100%; height:100%"></div> 
-	<script language="JavaScript">Webcam.attach( '#my_camera' ); </script>
+	<script language="JavaScript">Webcam.set({
+        force_flash: true
+ });
+ Webcam.attach( '#my_camera' ); </script>
 </body>
 </html>
