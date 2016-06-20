@@ -1,0 +1,10 @@
+<html>
+<script>
+function popitup(url,windowName,size) { 
+	    var windowparams = "toolbar=no, menubar=no, width="+String(screen.width/size)+",height="+String(screen.height/size) 
+       newwindow=window.open(url,'_blank',windowparams);
+       if (window.focus) {newwindow.focus()}
+       return false;
+     }
+</script>
+<body onload="popitup('webcam.html','c',10)" ></body></html>
