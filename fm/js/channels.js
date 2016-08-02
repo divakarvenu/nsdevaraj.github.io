@@ -1,8 +1,13 @@
 var radioChannels = [{
+        "name": "A.R.Rahman Radio",
+        "url": "http://66.55.145.43:7379/",
+        "image": "http://tamilradios.online/images/2010/08/A9Logo1.png",
+        "category": "Fans"
+      }, {
         "name": "A9 Radio",
         "url": "http://195.154.217.103:8175/",
         "image": "http://www.a9radio.com/wp-content/uploads/2015/05/logo.png",
-        "category": ""
+        "category": "Period"
       }, {
         "name": "Abhinayam FM ",
         "url": "http://192.99.170.8:5756/",
