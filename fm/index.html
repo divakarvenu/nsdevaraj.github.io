@@ -1,0 +1,94 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/ionic.css"/>
+ <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
+ <script type="text/javascript" src="lib/ionic.bundle.js"></script> 
+ <script type="text/javascript" src="lib/jquery.jplayer.min.js"></script>
+ <script type="text/javascript" src="js/channels.js"></script> 
+ <script type="text/javascript" src="js/player.js"></script>
+    
+</head>
+<body>
+<div ng-app="ionicApp">
+  <ion-tabs class="tabs-icon-only tabs-positive">
+    <ion-tab title="Home" icon="ion-ios7-musical-note" ui-sref="home">
+      <ion-nav-view name="homeTab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Home" icon="ion-ios7-heart" ui-sref="favourite">
+      <ion-nav-view name="favouriteTab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Settings" icon="ion-ios7-settings" ui-sref="settings">
+      <ion-nav-view name="settingsTab"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs> 
+  <script type="text/ng-template" id="home.html">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Tamil FM</h1>
+    </ion-header-bar>
+    <ion-content has-tabs="true" ng-controller="HomeCtrl">
+      <div id="jquery_jplayer_1" class="jp-jplayer" ng-controller="RadioCtrl"></div>
+      <div id="jp_container_1" class="jp-audio">
+        <div class="jp-type-single">
+          <div class="jp-gui jp-interface">
+            <ul class="jp-controls icons-ul">
+              <li><a href="javascript:;" class="jp-back" tabindex="1"><i class="icon-li icon-step-backward"></i>Prev</a></li>
+              <li><a href="javascript:;" class="jp-play" tabindex="1"><i class="icon-li icon-play"></i>Play</a></li>
+              <li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="icon-li icon-pause"></i>Pause</a></li>
+              <li><a href="javascript:;" class="jp-stop" tabindex="1"><i class="icon-li icon-stop"></i>Stop</a></li>
+              <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute"><i class="icon-li icon-volume-off"></i>Mute</a></li>
+              <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute"><i class="icon-li icon-volume-up"></i>UnMute</a></li>
+              <li><a href="javascript:;" class="jp-next" tabindex="1"><i class="icon-li icon-step-forward"></i>Next</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <ion-item ng-repeat="item in items" ng-click="changeChannel(item)">
+          <a class="item item-thumbnail-left" href="#">
+            <img ng-src="{{item.image}}" />
+            <h2>{{item.name}}</h2>
+            <button style="float:right" class="button button-small button-calm icon ion-heart" ng-click="addFavourite(item)"></button>
+          </a>
+        </ion-item>
+      </div> 
+    </ion-content>
+  </script>
+  <script type="text/ng-template" id="settings.html">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Category</h1>
+    </ion-header-bar>
+    <ion-content has-tabs="true" ng-controller="SettingsCtrl">
+      Settings
+    </ion-content>
+    <ion-content>
+ 
+      <ion-list ng-controller="MyCtrl">  
+        <ion-item ng-repeat="item in items" class="item item-text-wrap">
+          <div ng-click="toggleItem(item)" ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
+            <h2>{{ item.title }}</h2>
+            <br>
+            <h3>{{ item.text }}</h3> 
+          </div> 
+        </ion-item> 
+      </ion-list>  
+    </ion-content>
+  </script>
+  <script type="text/ng-template" id="favourite.html">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Favourites</h1>
+    </ion-header-bar>
+    <ion-content ng-controller="FavCtrl">
+      <div class="list">
+        <ion-item ng-repeat="item in items" ng-click="changeChannel(item)">
+          <a class="item item-thumbnail-left" href="#">
+            <img ng-src="{{item.image}}" />
+            <h2>{{item.name}}</h2>
+            <button style="float:right" class="button button-small button-assertive icon ion-trash-a" ng-click="deleteFavourite($index)"></button>
+          </a>
+        </ion-item>
+      </div>
+    </ion-content>
+  </script>
+</div>
+</body>
+</html>

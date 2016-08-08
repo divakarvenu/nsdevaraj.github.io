@@ -1,0 +1,74 @@
+<html>
+
+  <head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+<body>
+ <script>
+
+            function validate(url) {
+               var urlregex = /^((ftp|https?)\:\/\/)?[\w-]+(\.[\w-]+)+\.?(\:\d+)?(\/\S*)?$/gi;
+               return url.match(urlregex);
+            } 
+
+            function success() {
+                document.getElementsByTagName("form")[0].innerHTML = "<p class='success'>Your file was successfully uploaded. Would you like to <a href='.'>upload another file</a>?</p>";
+            }
+
+
+            function showError(msg, url, where) {
+                document.getElementsByTagName("form")[0].innerHTML = "<p class='success'>We were unable to upload the file. Please send the following error message to nsdevaraj@gmail.com for support.<br><br><em>"
+                + msg + " " + where + " " + url + "</em><br><br>Would you like to <a href='.'>try again</a>?</p>";
+            } 
+
+            function save() {
+                var url     = document.getElementById("url").value;
+                var where   = document.getElementById("service").value;
+                if (validate(url)) { 
+                    filepicker.setKey("AAiKmFlPTQIGqLCEQu5cQz");
+                    filepicker.exportFile(url, {
+                        service: where
+                    }, function(FPFile) {
+                        success();
+                    }, function(FPError) {
+                        showError(FPError.message, url, where);
+                    });
+                } else {
+                    alert("Please enter a valid URL starting with http://");
+                }
+            }
+        </script>
+
+		<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+
+
+        <form class="form-horizontal well"> 
+			<div class="control-group">
+                <label class="control-label-new" for="inputURL"> Enter file url</label>
+                <div class="controls2">
+                    <input type="text" id="url" placeholder="e.g., https://avatars3.githubusercontent.com/u/274062?v=3&s=460" class="input-xlarge" autocorrect="off" spellcheck="false" required="" pattern="https?://.+">
+                </div>
+            </div>
+               <div class="control-group ">
+                <label class="control-label-new" for="inputURL">Select Destination</label>
+                    <div class="controls2 send">
+                        <select name="service" id="service" style="width:90%" required="">
+                          <option value="DROPBOX">Dropbox</option>
+                          <option value="GOOGLE_DRIVE">Google Drive</option>
+                          <option value="SKYDRIVE">Microsoft OneDrive</option>
+                          <option value="BOX">Box.net</option>
+                          <option value="EVERNOTE">Evernote</option>
+                          <option value="FTP">FTP Server</option>
+                        </select>
+                    </div>
+                </div>
+
+            <div class="control-group">
+                    <a href="#" onclick="save();return false;" class="btn btn-inverse"><i class="icon-white icon-upload"></i> Upload File</a> 
+            </div>
+
+        </form>  
+</body>
+</html>           
+       
