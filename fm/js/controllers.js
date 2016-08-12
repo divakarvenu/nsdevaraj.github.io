@@ -1,11 +1,28 @@
 app.factory('radioService', function($cookies) {
   var fac = {};
+  var catArray =[];
+  var categories =[];
+  var radioCategories = []
   fac.url = 'http://164.132.63.75:9998/',
   fac.name = "Chennai FM Rainbow",
   fac.index = 1;
   fac.allStations = function() {
     return stations
   };
+  stations.forEach(function categorize(st){
+  	if(catArray[st.category] == undefined) {
+  		catArray[st.category]= []; 
+  		categories.push(st.category);
+  	}
+  	catArray[st.category].push(st);
+  })
+  for (var i=0; i<categories.length; i++){
+  	var category ={}
+  	category.title = categories[i]; 
+  	category.stations = catArray[ categories[i]];
+  	radioCategories.push(category);
+  } 
+  fac.allCategories = radioCategories;
   var fav = {};
   if ($cookies.get('fav') === undefined) {
     $cookies.put('fav', '[{ "name": "Ilayaraja FM ", "url": "http://108.166.161.221:7154/", "image": "http://static.radio.net/images/broadcasts/16/88/19859/c175.png", "category": "Fans" }]');
@@ -112,23 +129,8 @@ app.controller('FavCtrl', function($scope, radioService) {
 }) 
 
 app.controller('MyCtrl', function($scope, radioService) { 
-	var catArray =[];
-	var categories =[];
-	var radioCategories = []
-	radioService.allStations().forEach(function categorize(st){
-		if(catArray[st.category] == undefined) {
-			catArray[st.category]= []; 
-			categories.push(st.category);
-		}
-		catArray[st.category].push(st);
-	})
-	for (var i=0; i<categories.length; i++){
-		var category ={}
-		category.title = categories[i]; 
-		category.stations = catArray[ categories[i]];
-		radioCategories.push(category);
-	} 
-  $scope.items = radioCategories;
+	
+  $scope.items = radioService.allCategories;
   $scope.toggleItem = function(item) {
     if ($scope.isItemShown(item)) {
       $scope.shownItem = null;
