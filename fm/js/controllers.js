@@ -111,8 +111,7 @@ app.controller('FavCtrl', function($scope, radioService) {
   }
 }) 
 
-app.controller('MyCtrl', function($scope, radioService) {
-	
+app.controller('MyCtrl', function($scope, radioService) { 
 	var catArray =[];
 	var categories =[];
 	var radioCategories = []

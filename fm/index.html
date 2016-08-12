@@ -52,7 +52,7 @@
           <ion-tab title="Home" icon="ion-ios7-heart" ui-sref="favourite">
               <ion-nav-view name="favouriteTab"></ion-nav-view>
           </ion-tab>
-          <ion-tab title="Settings" icon="ion-ios7-settings" ui-sref="settings">
+          <ion-tab title="Settings" icon="ion-android-storage" ui-sref="settings">
               <ion-nav-view name="settingsTab"></ion-nav-view>
           </ion-tab>
       </ion-tabs>
@@ -80,12 +80,10 @@
         <ion-list ng-controller="MyCtrl">
              <ion-item ng-repeat="category in items" class="item item-text-wrap">
             <div ng-click="toggleItem(category)" ng-class="isItemShown(category) ? 'item-expand active' : 'item-expand inactive'">
-              <h2>{{ category.title }}</h2>
-              <br>
+              <h2>{{ category.title }}</h2> 
   				<ion-item ng-repeat="station in category.stations" ng-click="changeChannel(item)">
 					<a class="station item-thumbnail-left" href="#"> 
-                    <h2>{{station.name}}</h2>
-                     <button style="float:right" class="button button-small button-calm icon ion-heart" ng-click="addFavourite(station)"></button>
+                    <h2>{{station.name}}</h2><button style="float:right" class="button button-small button-calm icon ion-heart" ng-click="addFavourite(station)"></button>
                     </a>
                 </ion-item>
             </div>

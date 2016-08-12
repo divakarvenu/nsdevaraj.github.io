@@ -212,7 +212,7 @@ var stations = [{
         "name": "Ilayaraja FM",
         "url": "http://108.166.161.221:7154/",
         "image": "http://static.radio.net/images/broadcasts/16/88/19859/c175.png",
-        "category": "Fans"
+        "category": "Period"
       }, {
         "name": "Ilayaraja Radio",
         "url": "http://streaming101.radionomy.com/RadionoMiX",
@@ -282,7 +282,7 @@ var stations = [{
         "name": "Likexa FM",
         "url": "http://50.7.77.114:8176/",
         "image": "http://static.radio.net/images/broadcasts/b1/a5/27985/c175.png",
-        "category": "International"
+        "category": "Common"
       }, {
         "name": "Live From Norway FM",
         "url": "http://66.90.103.189:8852/",
@@ -342,7 +342,7 @@ var stations = [{
         "name": "Oli SG",
         "url": "http://mediacorp.rastream.com/968fm",
         "image": "http://tamiloradio.com/wp-content/uploads/2015/10/Oli-Fm1-300x212.jpg",
-        "category": "International"
+        "category": "Live"
       }, {
         "name": "Osai FM",
         "url": "http://astro4.rastream.com/osai",
