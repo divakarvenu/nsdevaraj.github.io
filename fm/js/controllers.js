@@ -1,4 +1,4 @@
-app.factory('radioService', function($cordovaFile,$cookies){
+app.factory('radioService', function( $cookies){
    var fac = {};
 	 fac.url='http://164.132.63.75:9998/',
    fac.name="Chennai FM Rainbow",
@@ -292,16 +292,7 @@ app.controller('HomeCtrl', function($rootScope,$scope,radioService) {
 		}
 })
 
-app.controller('FavCtrl', function($scope,$cordovaFile,radioService) {
-
-  // $cordovaFile.writeFile('file:///storage/emulated/0/', "tamilfmfav.json", "text", true)
-  //     .then(function (success) {
-  //       console.log('read working fine');
-  //     }, function (error) {
-  //       console.log('cannot read');
-  //     //  alert('not working fine');
-  //     });
-
+app.controller('FavCtrl', function($scope, radioService) { 
     $scope.items=radioService.favourite().get();
 		$scope.changeChannel=function(radioChannel){
     		var index=$scope.items.indexOf(radioChannel);
@@ -346,46 +337,4 @@ app.controller('MyCtrl', function($scope) {
 });
 
 
-
-//
-//
-// .controller('ChatsCtrl', function($scope, $cordovaFile,Chats) {
-//   // With the new view caching in Ionic, Controllers are only called
-//   // when they are recreated or on app start, instead of every page change.
-//   // To listen for when this page is active (for example, to refresh data),
-//   // listen for the $ionicView.enter event:
-//   //
-//   //$scope.$on('$ionicView.enter', function(e) {
-//   //});
-//
-//
-//   // CREATE
-//     $cordovaFile.createDir('file:///storage/emulated/0/', 'SELFI', true)
-//       .then(function (success) {
-//       //  alert('success function works fine');
-//       }, function (error) {
-//         alert('Error');
-//       });
-//
-//   $cordovaFile.writeFile('file:///storage/emulated/0/', "divakar.txt", "text", true)
-//     .then(function (success) {
-//     //  alert('write working fine');
-//     }, function (error) {
-//       console.log('cannot read');
-//     //  alert('not working fine');
-//     });
-//
-//
-//
-//   //   function read(){
-//   //     $cordovaFile.checkFile(cordova.file.dataDirectory, "file.txt")
-//   //   .then(function (success) {
-//   //     // success
-//   //     alert(file+" file is available");
-//   //   }, function (error) {
-//   //     // error
-//   //     alert("File not found!");
-//   //   });
-//   // }
-//
-// })
+ 
