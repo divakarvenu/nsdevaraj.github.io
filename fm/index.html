@@ -4,21 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-
-    <link href="http://code.ionicframework.com/1.0.0-beta.14/css/ionic.css" rel="stylesheet">
+    <link href="css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-   
-    
+    <script src="lib/ionic/js/ionic.bundle.js"></script> 
     <!-- your app's js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="http://www.jplayer.org/latest/dist/jplayer/jquery.jplayer.min.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jplayer/jquery.jplayer.min.js"></script>
     <script src="lib/angular-cookies/angular-cookies.min.js"></script>
     <script src="js/stations.js"></script> 
     <script src="js/app.js"></script>
@@ -32,7 +27,6 @@
     </h2>
     </div>
     <div id="player" ng-controller="RadioCtrl">
-
     	<div id="jquery_jplayer_1" class="jp-jplayer" >
     	</div>
     <div id="jp_container_1" class="jp-audio">
@@ -52,78 +46,48 @@
     </div>
     </div>
       <ion-tabs class="tabs-icon-only tabs-positive barbottom">
-
           <ion-tab title="Home" icon="ion-ios7-musical-note" ui-sref="home">
               <ion-nav-view name="homeTab"></ion-nav-view>
           </ion-tab>
-
           <ion-tab title="Home" icon="ion-ios7-heart" ui-sref="favourite">
               <ion-nav-view name="favouriteTab"></ion-nav-view>
           </ion-tab>
-
           <ion-tab title="Settings" icon="ion-ios7-settings" ui-sref="settings">
               <ion-nav-view name="settingsTab"></ion-nav-view>
           </ion-tab>
       </ion-tabs>
-
-
-
       <script type="text/ng-template" id="home.html">
-
-
           <ion-header-bar class="bar-positive">
               <h1 class="title">All Station</h1>
           </ion-header-bar>
-
           <ion-content has-tabs="true" ng-controller="HomeCtrl">
-
-
-
                         <div class="list">
               <ion-item ng-repeat="item in items" ng-click="changeChannel(item)">
                   <a class="item item-thumbnail-left" href="#">
                     <img ng-src="{{item.image}}"/>
                     <h2>{{item.name}}</h2>
-
                      <button style="float:right" class="button button-small button-calm icon ion-heart" ng-click="addFavourite(item)"></button>
-
                     </a>
                     </ion-item>
                     </div>
-
-
-
-
           </ion-content>
       </script>
-
       <script type="text/ng-template" id="settings.html">
           <ion-header-bar class="bar-positive">
-              <h1 class="title">Category</h1>
+              <h1 class="title">Radio Categories</h1>
           </ion-header-bar>
-
         <ion-content has-tabs="true">
-
-
         <ion-list ng-controller="MyCtrl">
-
-
              <ion-item ng-repeat="item in items" class="item item-text-wrap">
             <div ng-click="toggleItem(item)" ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
               <h2>{{ item.title }}</h2>
               <br>
   						<h3>{{ item.text }}</h3>
-
             </div>
-
           </ion-item>
-
         </ion-list>
-
-
       </ion-content>
       </script>
-
        <script type="text/ng-template" id="favourite.html">
           <ion-header-bar class="bar-positive">
               <h1 class="title">Favourites</h1>
@@ -138,7 +102,6 @@
                     </a>
                     </ion-item>
                     </div>
-
       </ion-content>
       </script>
   </div>
