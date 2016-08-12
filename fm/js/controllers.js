@@ -6,9 +6,7 @@ app.factory('radioService', function($cookies) {
   fac.allStations = function() {
     return stations
   };
-
   var fav = {};
-
   if ($cookies.get('fav') === undefined) {
     $cookies.put('fav', '[{ "name": "Ilayaraja FM ", "url": "http://108.166.161.221:7154/", "image": "http://static.radio.net/images/broadcasts/16/88/19859/c175.png", "category": "Fans" }]');
   } 
@@ -31,29 +29,22 @@ app.factory('radioService', function($cookies) {
         fac.favourite().get();
       }
     }
-
   };
-
   fac.playRadio = function() {
     $("#jquery_jplayer_1").jPlayer("setMedia", {
       mp3: fac.url + ";stream/1"
     }).jPlayer("play");
   }
-
   return fac;
-
 })
-
 
 app.controller('RadioHeadCtrl', function($rootScope, $scope, radioService) {
   $rootScope.station = radioService.name;
 })
 
-
 app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
   var url = radioService.url;
   $scope.items = radioService.allStations();
-
   $scope.movebackward = function() {
     if ($scope.items[radioService.index - 1] !== undefined) {
       radioService.url = $scope.items[radioService.index - 1].url;
@@ -65,7 +56,6 @@ app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
       return;
     }
   }
-
   $scope.moveforward = function() {
     if ($scope.items[radioService.index + 1] !== undefined) {
       radioService.url = $scope.items[radioService.index + 1].url;
@@ -77,7 +67,6 @@ app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
       return;
     }
   }
-
   $("#jquery_jplayer_1").jPlayer({
     ready: radioService.playRadio,
     play: function(event) {
@@ -86,12 +75,9 @@ app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
     error: function(event) {
       radioService.name = "Station Not available";
       $rootScope.station = "Station Not available";
-
     }
   });
-
 })
-
 
 app.controller('HomeCtrl', function($rootScope, $scope, radioService) {
   $scope.items = radioService.allStations();
@@ -126,21 +112,24 @@ app.controller('FavCtrl', function($scope, radioService) {
 }) 
 
 app.controller('MyCtrl', function($scope, radioService) {
-  $scope.items = [{
-    title: 'Sad',
-    text: "Channel 1"
-  }, {
-    title: '1980',
-    text: '...'
-  }, {
-    title: 'Sad',
-    text: "Channel 1"
-  }, {
-    title: '1980',
-    text: '...'
-  }];
-
-  //  $scope.items = radioService.allStations();
+	
+	var catArray =[];
+	var categories =[];
+	var radioCategories = []
+	radioService.allStations().forEach(function categorize(st){
+		if(catArray[st.category] == undefined) {
+			catArray[st.category]= []; 
+			categories.push(st.category);
+		}
+		catArray[st.category].push(st);
+	})
+	for (var i=0; i<categories.length; i++){
+		var category ={}
+		category.title = categories[i]; 
+		category.stations = catArray[ categories[i]];
+		radioCategories.push(category);
+	} 
+  $scope.items = radioCategories;
   $scope.toggleItem = function(item) {
     if ($scope.isItemShown(item)) {
       $scope.shownItem = null;
@@ -151,5 +140,4 @@ app.controller('MyCtrl', function($scope, radioService) {
   $scope.isItemShown = function(item) {
     return $scope.shownItem === item;
   };
-
 });
