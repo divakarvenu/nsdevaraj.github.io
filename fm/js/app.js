@@ -1,6 +1,7 @@
 var app = angular.module('tamilFm', ['ionic', 'ngCookies'])
 
 app.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.views.maxCache(0);
   $ionicConfigProvider.tabs.position('bottom');
 })
 
