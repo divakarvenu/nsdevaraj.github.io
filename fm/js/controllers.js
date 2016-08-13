@@ -11,23 +11,23 @@ app.factory('radioService', function($cookies) {
   };
   stations.forEach(function categorize(st){
   	if(catArray[st.category] == undefined) {
-  		catArray[st.category]= []; 
+  		catArray[st.category]= [];
   		categories.push(st.category);
   	}
   	catArray[st.category].push(st);
   })
   for (var i=0; i<categories.length; i++){
   	var category ={}
-  	category.title = categories[i]; 
+  	category.title = categories[i];
   	category.stations = catArray[ categories[i]];
   	radioCategories.push(category);
-  } 
+  }
   fac.allCategories = radioCategories;
   var fav = {};
   if ($cookies.get('fav') === undefined) {
     $cookies.put('fav', '[{ "name": "Ilayaraja FM ", "url": "http://108.166.161.221:7154/", "image": "http://static.radio.net/images/broadcasts/16/88/19859/c175.png", "category": "Fans" }]');
-  } 
-  
+  }
+
   fac.favourite = function() {
     return {
       get: function() {
@@ -59,7 +59,7 @@ app.controller('RadioHeadCtrl', function($rootScope, $scope, radioService) {
   $rootScope.station = radioService.name;
 })
 
-app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
+app.controller('RadioCtrl', function($rootScope, $scope, radioService,$state) {
   var url = radioService.url;
   $scope.items = radioService.allStations();
   $scope.movebackward = function() {
@@ -84,10 +84,33 @@ app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
       return;
     }
   }
+
+  $scope.addFavourite = function() {
+    for (var i = 0, len = $scope.items.length; i < len; i++) {
+      if($scope.items[i]['url']==radioService.url){
+            var item=$scope.items[i];
+          //  console.log(item);
+            $scope.favouriteItems = radioService.favourite().get();
+            delete item.$$hashKey;
+            var indexExist=$scope.favouriteItems.map(function(e) { return e.name; }).indexOf(item.name);
+            if(indexExist==-1){
+              radioService.favourite().add(item);
+              if($state.current.url=='/favourite'){
+                $state.reload();
+              }
+           }else{
+             alert('Already added to favourite');
+           }
+           break;
+
+         }
+  }
+}
+
   $("#jquery_jplayer_1").jPlayer({
     ready: radioService.playRadio,
     play: function(event) {
-      console.log('play')
+    //  console.log('play')
     },
     error: function(event) {
       radioService.name = "Station Not available";
@@ -99,7 +122,7 @@ app.controller('RadioCtrl', function($rootScope, $scope, radioService) {
 app.controller('HomeCtrl', function($rootScope, $scope, radioService) {
   $scope.items = radioService.allStations();
   $scope.changeChannel = function(radioChannel) {
-    console.log(radioChannel);
+  //  console.log(radioChannel);
     var index = $scope.items.indexOf(radioChannel);
     $rootScope.station = radioChannel.name;
     radioService.index = index;
@@ -108,8 +131,15 @@ app.controller('HomeCtrl', function($rootScope, $scope, radioService) {
     radioService.playRadio();
   }
   $scope.addFavourite = function(item) {
+    $scope.favouriteItems = radioService.favourite().get();
     delete item.$$hashKey;
-    radioService.favourite().add(item);
+    var indexExist=$scope.favouriteItems.map(function(e) { return e.name; }).indexOf(item.name);
+  //  console.log(indexExist);
+    if(indexExist==-1){
+      radioService.favourite().add(item);
+   }else{
+     alert('Already added to favourite')
+   }
   }
 })
 
@@ -126,10 +156,10 @@ app.controller('FavCtrl', function($scope, radioService) {
     radioService.favourite().delete(item);
     $scope.items = radioService.favourite().get();
   }
-}) 
+})
 
-app.controller('MyCtrl', function($scope, radioService) { 
-	
+app.controller('MyCtrl', function($rootScope,$scope, radioService) {
+
   $scope.items = radioService.allCategories;
   $scope.toggleItem = function(item) {
     if ($scope.isItemShown(item)) {
@@ -141,4 +171,27 @@ app.controller('MyCtrl', function($scope, radioService) {
   $scope.isItemShown = function(item) {
     return $scope.shownItem === item;
   };
+  $scope.allitems = radioService.allStations();
+  $scope.changeChannel = function(radioChannel) {
+  //  console.log(radioChannel);
+    var index = $scope.allitems.indexOf(radioChannel);
+    $rootScope.station = radioChannel.name;
+    radioService.index = index;
+    radioService.url = radioChannel.url;
+    radioService.name = radioChannel.name;
+    radioService.playRadio();
+  }
+
+  $scope.addFavourite = function(item) {
+    $scope.favouriteItems = radioService.favourite().get();
+    delete item.$$hashKey;
+    var indexExist=$scope.favouriteItems.map(function(e) { return e.name; }).indexOf(item.name);
+  //  console.log(indexExist);
+    if(indexExist==-1){
+      radioService.favourite().add(item);
+   }else{
+     alert('Already added to favourite')
+   }
+  }
+
 });
