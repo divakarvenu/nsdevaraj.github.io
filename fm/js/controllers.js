@@ -56,10 +56,12 @@ app.factory('radioService', function($cookies) {
 })
 
 app.controller('RadioHeadCtrl', function($rootScope, $scope, radioService) {
+  $scope.platform = ionic.Platform;
   $rootScope.station = radioService.name;
 })
 
 app.controller('RadioCtrl', function($rootScope, $scope, radioService,$state) {
+  $scope.platform = ionic.Platform;
   var url = radioService.url;
   $scope.items = radioService.allStations();
   $scope.movebackward = function() {
@@ -120,6 +122,7 @@ app.controller('RadioCtrl', function($rootScope, $scope, radioService,$state) {
 })
 
 app.controller('HomeCtrl', function($rootScope, $scope, radioService) {
+  $scope.platform = ionic.Platform;
   $scope.items = radioService.allStations();
   $scope.changeChannel = function(radioChannel) {
   //  console.log(radioChannel);
@@ -144,6 +147,7 @@ app.controller('HomeCtrl', function($rootScope, $scope, radioService) {
 })
 
 app.controller('FavCtrl', function($scope, radioService) {
+  $scope.platform = ionic.Platform;
   $scope.items = radioService.favourite().get();
   $scope.changeChannel = function(radioChannel) {
     var index = $scope.items.indexOf(radioChannel);
@@ -159,7 +163,7 @@ app.controller('FavCtrl', function($scope, radioService) {
 })
 
 app.controller('MyCtrl', function($rootScope,$scope, radioService) {
-
+   $scope.platform = ionic.Platform;
   $scope.items = radioService.allCategories;
   $scope.toggleItem = function(item) {
     if ($scope.isItemShown(item)) {
