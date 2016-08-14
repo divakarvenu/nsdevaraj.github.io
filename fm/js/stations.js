@@ -1,7 +1,7 @@
 var stations = [{
         "name": "A.R.Rahman Radio",
         "url": "http://66.55.145.43:7379/",
-        "image": "http://tamilradios.online/images/2010/08/A9Logo1.png",
+        "image": "https://pbs.twimg.com/profile_images/597865661264596992/NnOqToId.jpg",
         "category": "Fans"
       }, {
         "name": "A9 Radio",
